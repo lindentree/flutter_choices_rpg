@@ -74,8 +74,20 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "nested",
+      "rootUri": "file:///Users/lindentree/flutter/.pub-cache/hosted/pub.dartlang.org/nested-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path",
       "rootUri": "file:///Users/lindentree/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "provider",
+      "rootUri": "file:///Users/lindentree/flutter/.pub-cache/hosted/pub.dartlang.org/provider-5.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -134,13 +146,13 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "destini_challenge_starting",
+      "name": "flutter_choices",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.3"
     }
   ],
-  "generated": "2021-10-14T03:40:03.735333Z",
+  "generated": "2021-10-14T03:58:55.380762Z",
   "generator": "pub",
   "generatorVersion": "2.14.3"
 }
