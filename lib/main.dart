@@ -1,97 +1,63 @@
 import 'package:flutter/material.dart';
-import 'story_brain.dart';
+import 'chapter_view.dart';
+void main() => runApp(Choices());
 
-void main() => runApp(Destini());
-
-class Destini extends StatelessWidget {
+class Choices extends StatelessWidget {
+    @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark(),
-      home: StoryPage(),
+      home: HomeScreen(),
     );
   }
 }
 
-StoryBrain storyBrain = StoryBrain();
-
-class StoryPage extends StatefulWidget {
-  _StoryPageState createState() => _StoryPageState();
-}
-
-class _StoryPageState extends State<StoryPage> {
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("images/background.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
-        constraints: BoxConstraints.expand(),
-        child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Expanded(
-                flex: 12,
+        appBar: AppBar(),
+        body: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    'images/background.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
+            constraints: BoxConstraints.expand(),
+            child: SafeArea(
                 child: Center(
-                  child: Text(
-                    storyBrain.getStory(),
-                    style: TextStyle(
-                      fontSize: 25.0,
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                  SizedBox(
+                    width: 90,
+                    height: 60,
+                    child: TextButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.red),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(22.0),
+                                      side: BorderSide(color: Colors.yellow)))),
+                      child: Text('Open Chapter'),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) {
+                            return ChapterView();
+                          }),
+                        );
+                      },
                     ),
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: FlatButton(
-                  onPressed: () {
-                    setState(() {
-                      storyBrain.nextStory(1);
-                    });
-                    //Choice 1 made by user.
-                  },
-                  color: Colors.red,
-                  child: Text(
-                    storyBrain.getChoice1(),
-                    style: TextStyle(
-                      fontSize: 20.0,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              Expanded(
-                flex: 2,
-                child: Visibility(
-                  visible: storyBrain.buttonShouldBeVisible(),
-                  child: FlatButton(
-                    onPressed: () {
-                      //Choice 2 made by user.
-                      setState(() {
-                        storyBrain.nextStory(2);
-                      });
-                    },
-                    color: Colors.blue,
-                    child: Text(
-                      storyBrain.getChoice2(),
-                      style: TextStyle(
-                        fontSize: 20.0,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+                  )
+                ])))));
   }
 }
+
