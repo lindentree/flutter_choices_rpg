@@ -1,6 +1,9 @@
-#Choices
+# Choices
 
 A choose your own adventure game.
+
+![first screencap](./images/screenshots/first.png)
+![second screencap](./images/screenshots/second.png)
 
 You'll need to install the Flutter SDK and a mobile emulator(either XCode's Simulator or Android Studio) to run this locally.
 Once they're installed, run the emulator and use `flutter run` in the project folder.
